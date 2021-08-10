@@ -66,7 +66,7 @@ module.exports = ({
       let domain;
 
       try {
-        domain = determineLocale(file.relative, contents);
+        domain = determineLocale(file.relative.split('.').slice(0, -1).join('.'), contents);
       } catch (e) {
         return Promise.reject(new PluginError(PLUGIN_NAME, 'determineLocale failed', { showStack: true }));
       }
